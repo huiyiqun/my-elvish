@@ -1,0 +1,2 @@
+use tmux
+tmux:start
