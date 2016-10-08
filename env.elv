@@ -1,0 +1,1 @@
+GOPATH=$env:HOME/go

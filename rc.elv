@@ -16,3 +16,6 @@ fn svim { sudo nvim $@ }
 le:binding[insert][Alt+Backspace]=kill-small-word-left
 le:binding[insert][Ctrl+A]=move-dot-sol
 le:binding[insert][Ctrl+E]=move-dot-eol
+
+# load environments
+use env
