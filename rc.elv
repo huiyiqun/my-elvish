@@ -1,6 +1,10 @@
 use tmux
 tmux:start
 
+# Todo: check existence of the dircolor file
+use ls-color
+ls-color:setup ~/Source/dircolors-solarized/dircolors.256dark
+
 # use bffi as the default completion in elvish
 #le:completer['']={ bash ~/.elvish/get-completion.bash $@ }
 
