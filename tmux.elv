@@ -1,9 +1,12 @@
+use utils
+
 fn start {
     if == $E:TMUX ''; then
-        try
+        if == utils:ok { tmux ls }; then
+            # There are existing sessions
             exec tmux attach
-        except
+        else
             exec tmux
-        tried
+        fi
     fi
 }
