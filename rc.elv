@@ -1,7 +1,7 @@
 use tmux
 tmux:start
 
-# Todo: check existence of the dircolor file
+# TODO: check existence of the dircolor file
 use ls-color
 ls-color:setup ~/Source/dircolors-solarized/dircolors.256dark
 
