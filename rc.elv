@@ -20,3 +20,6 @@ fn svim { sudo nvim $@ }
 le:binding[insert][Alt+Backspace]=$le:&kill-small-word-left
 le:binding[insert][Ctrl+A]=$le:&move-dot-sol
 le:binding[insert][Ctrl+E]=$le:&move-dot-eol
+
+# environments
+E:GOPATH=~/go
