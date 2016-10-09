@@ -1,1 +1,9 @@
-fn start { if == $E:TMUX ''; then exec tmux ; fi }
+fn start {
+    if == $E:TMUX ''; then
+        try
+            exec tmux attach
+        except
+            exec tmux
+        tried
+    fi
+}
