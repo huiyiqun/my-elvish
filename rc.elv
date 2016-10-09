@@ -5,8 +5,8 @@ tmux:start
 #le:completer['']={ bash ~/.elvish/get-completion.bash $@ }
 
 # alias
-fn ls { e:ls --color $@ }
-fn grep { e:grep --color $@ }
+fn ls { e:ls --color=auto $@ }
+fn grep { e:grep --color=auto $@ }
 fn yat { yaourt $@ }
 fn up { yaourt -Syua --devel --noconfirm}
 fn vim { nvim $@ }
