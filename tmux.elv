@@ -1,8 +1,8 @@
 use utils
 
 fn start {
-    if == $E:TMUX ''; then
-        if == utils:ok { tmux ls }; then
+    if ==s $E:TMUX ''; then
+        if utils:ok { tmux ls }; then
             # There are existing sessions
             exec tmux attach
         else
