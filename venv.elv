@@ -18,7 +18,7 @@ fn activate [venv_path]{
         return
     fi
 
-    deactive
+    deactivate
     
     E:_VIRTUALENV_CURRENT_PATH=$pwd/$venv_path/bin/
     paths=[$E:_VIRTUALENV_CURRENT_PATH $@paths]
