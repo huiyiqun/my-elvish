@@ -23,3 +23,8 @@ le:binding[insert][Ctrl+E]=$le:&move-dot-eol
 
 # environments
 E:GOPATH=~/go
+
+# prompt
+use venv
+default-rprompt=$le:rprompt
+le:rprompt={ le:styled (venv:venv-string-with-path | slurp) 33; put '  '; $default-rprompt }
