@@ -20,7 +20,7 @@ fn activate [venv_path]{
 
     deactivate
     
-    E:_VIRTUALENV_CURRENT_PATH=$pwd/$venv_path/bin/
+    E:_VIRTUALENV_CURRENT_PATH=(path-abs $venv_path/bin/)
     paths=[$E:_VIRTUALENV_CURRENT_PATH $@paths]
 
     E:_VIRTUALENV_SAVED_PYTHONHOME=$E:PYTHONHOME
