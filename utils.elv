@@ -1,5 +1,5 @@
 fn ok [f]{
-    try $f; except false; tried
+    try $f; except; false; tried
 }
 
 fn not-ok [f]{
