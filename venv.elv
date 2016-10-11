@@ -2,7 +2,7 @@ use utils
 
 fn deactivate {
     if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
-        paths=(utils:remove $paths (utils:search $paths $E:_VIRTUALENV_CURRENT_PATH))
+        paths=[(utils:remove $paths $E:_VIRTUALENV_CURRENT_PATH)]
         del E:_VIRTUALENV_CURRENT_PATH
     fi
 
