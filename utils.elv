@@ -1,11 +1,11 @@
 fn ok [f]{
-  try $f
-  except; false
-  tried
+    try $f
+    except; false
+    tried
 }
 
 fn not-ok [f]{
-  try $f; false
-  except
-  tried
+    try $f; false
+    except
+    tried
 }
