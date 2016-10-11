@@ -14,7 +14,7 @@ fn deactivate {
 
 fn activate [venv_path]{
     if utils:not-ok { test -x $venv_path/bin/python }; then
-        fail "Error: $venv_path seems not a virtualenv"
+        fail "Error: "$venv_path" seems not a virtualenv"
     fi
 
     deactivate
