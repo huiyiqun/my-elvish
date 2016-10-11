@@ -14,3 +14,9 @@ fn search [list ele]{
         fi
     done
 }
+
+fn remove [list index]{
+    left=$list[:$index]
+    right=$list[(+ $index 1):]
+    put [$@left $@right]
+}
