@@ -12,14 +12,14 @@ fn deactivate {
     fi
 }
 
-fn activate [venv_path]{
-    if utils:not-ok { test -x $venv_path/bin/python }; then
-        fail "Error: "$venv_path" seems not a virtualenv"
+fn activate [venv-path]{
+    if utils:not-ok { test -x $venv-path/bin/python }; then
+        fail "Error: "$venv-path" seems not a virtualenv"
     fi
 
     deactivate
     
-    E:_VIRTUALENV_CURRENT_PATH=(path-abs $venv_path/bin/)
+    E:_VIRTUALENV_CURRENT_PATH=(path-abs $venv-path/bin/)
     paths=[$E:_VIRTUALENV_CURRENT_PATH $@paths]
 
     E:_VIRTUALENV_SAVED_PYTHONHOME=$E:PYTHONHOME
