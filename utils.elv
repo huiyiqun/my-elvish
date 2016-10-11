@@ -10,7 +10,6 @@ fn search [list ele]{
     for idx in (range (count $list)); do
         if eq $ele $list[$idx]; then
             put $idx
-            return
         fi
     done
 }
