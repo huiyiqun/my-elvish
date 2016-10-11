@@ -26,3 +26,15 @@ fn activate [venv_path]{
     E:_VIRTUALENV_SAVED_PYTHONHOME=$E:PYTHONHOME
     del E:PYTHONHOME
 }
+
+fn venv-string {
+    if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
+        print "(venv)"
+    fi
+}
+
+fn venv-string-with-path {
+    if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
+        print "(venv) at" (tilde-abbr $E:_VIRTUALENV_CURRENT_PATH)
+    fi
+}
