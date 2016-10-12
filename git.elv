@@ -17,7 +17,7 @@ fn is-touched {
 
 fn branch-name {
     try
-        git symbolic-ref --short HEAD
+        git symbolic-ref --short HEAD 2>/dev/null
     except
         git show-ref --head -s --abbrev | head -1
     tried
