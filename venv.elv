@@ -28,12 +28,12 @@ fn activate [venv-path]{
 
 fn venv-string {
     if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
-        print "(venv)"
+        print '' (venv) ''
     fi
 }
 
 fn venv-string-with-path {
     if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
-        print "(venv) at" (tilde-abbr $E:_VIRTUALENV_CURRENT_PATH)
+        print '' "(venv)" at (tilde-abbr $E:_VIRTUALENV_CURRENT_PATH) ''
     fi
 }

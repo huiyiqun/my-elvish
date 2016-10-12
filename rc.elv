@@ -27,4 +27,4 @@ E:GOPATH=~/go
 # prompt
 use venv
 default-rprompt=$le:rprompt
-le:rprompt={ le:styled (venv:venv-string-with-path | slurp) 33; put '  '; $default-rprompt }
+le:rprompt={ le:styled (venv:venv-string-with-path | slurp) 33; $default-rprompt }
