@@ -13,8 +13,6 @@ fn ls { e:ls --color=auto $@ }
 fn grep { e:grep --color=auto $@ }
 fn yat { yaourt $@ }
 fn up { yaourt -Syua --devel --noconfirm}
-fn vim { nvim $@ }
-fn svim { sudo nvim $@ }
 
 # bind
 le:binding[insert][Alt+Backspace]=$le:&kill-small-word-left
