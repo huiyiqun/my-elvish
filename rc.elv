@@ -21,6 +21,7 @@ le:binding[insert][Ctrl+E]=$le:&move-dot-eol
 
 # environments
 E:GOPATH=~/go
+E:MANPAGER="nvim -u NORC -c 'set ft=man' -"
 
 # prompt
 use venv
