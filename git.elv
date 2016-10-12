@@ -46,6 +46,7 @@ fn ahead {
 }
 
 fn git-string {
+    # This will fail when we are not in a git directory
     le:styled (tilde-abbr (git-dir)) 32
 
     put ' on '; le:styled (branch-name) 33
