@@ -17,3 +17,24 @@ fn remove [list target]{
         fi
     done
 }
+
+fn relative-path [parent child]{
+    {parent, child}=(each path-abs [$parent $child])
+
+
+    if not { == (each count [$child $parent]) }; then
+        if not { has-suffix $parent / }; then
+            parent=$parent/
+        fi
+    fi
+
+    if not { has-prefix $child $parent }; then
+        fail (echo $child is not sub-directory of $parent)
+    fi
+
+    try
+        put $child[(count $parent):]
+    except
+        put ''
+    tried
+}
