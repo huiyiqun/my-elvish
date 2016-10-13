@@ -19,21 +19,32 @@ fn activate [venv-path]{
 
     deactivate
     
-    E:_VIRTUALENV_CURRENT_PATH=(path-abs $venv-path/bin/)
+    E:_VIRTUALENV_CURRENT_PATH=(path-abs $venv-path/bin)
     paths=[$E:_VIRTUALENV_CURRENT_PATH $@paths]
 
     E:_VIRTUALENV_SAVED_PYTHONHOME=$E:PYTHONHOME
     del E:PYTHONHOME
 }
 
+fn venv-path {
+    if utils:not { is $E:_VIRTUALENV_CURRENT_PATH "" }; then
+        if utils:contain $paths $E:_VIRTUALENV_CURRENT_PATH; then
+            put $E:_VIRTUALENV_CURRENT_PATH
+            return
+        fi
+    fi
+    fail "Virtualenv is not activated"
+}
+
 fn venv-string {
-    if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
-        print '' (venv) ''
+    if utils:ok { venv-path | each { } }; then
+        print '' "(venv)" ''
     fi
 }
 
 fn venv-string-with-path {
-    if !=s $E:_VIRTUALENV_CURRENT_PATH ""; then
-        print '' "(venv)" at (tilde-abbr $E:_VIRTUALENV_CURRENT_PATH) ''
+    where=
+    if utils:ok { where=(venv-path) }; then
+        print '' "(venv)" at (tilde-abbr $where) ''
     fi
 }
