@@ -38,3 +38,13 @@ fn relative-path [parent child]{
         put ''
     tried
 }
+
+fn contain [list target]{
+    not { ok {
+        each [element]{
+            if is $element $target; then
+                fail "equal"
+            fi
+        } $list
+    }}
+}
