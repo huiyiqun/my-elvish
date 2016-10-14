@@ -17,14 +17,18 @@ fn is-touched {
 
 fn branch-name {
     try
-        git symbolic-ref --short HEAD 2>/dev/null
+        git symbolic-ref -q --short HEAD
     except
         git show-ref --head -s --abbrev | head -1
     tried
 }
 
 fn commit-count {
-    splits &sep="\t" (git rev-list --count --left-right "@{upstream}...HEAD")
+    try
+        splits &sep="\t" (git rev-list --quiet --count --left-right "@{upstream}...HEAD" 2>/dev/null)
+    except
+        fail "We are currently not on a branch"
+    tried
 }
 
 fn ahead {
@@ -49,15 +53,20 @@ fn git-string {
     # This will fail when we are not in a git directory
     le:styled (tilde-abbr (git-dir)) 32
 
-    put ' on '; le:styled (branch-name) 33
+    put ' on '; le:styled (branch-name) 33; put ' '
 
     if is-touched; then
-        put ' '$symbol-for[dirty]
+        put $symbol-for[dirty] ' '
     else
-        put ' '$symbol-for[(ahead)]
+        try
+            put $symbol-for[(ahead)] ' '
+        except
+        tried
     fi
 
-    put ' /'
+    put '/'
 
-    put (utils:relative-path (git-dir) $pwd) ' ~> '
+    utils:relative-path (git-dir) $pwd
+
+    put ' ~> '
 }
