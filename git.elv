@@ -1,6 +1,10 @@
 use utils
 
-symbol-for=[&ahead=" " &behind=" " &diverged=":" &dirty=" " &none=" "]
+symbol-for=[&ahead=(le:styled " " 33)
+            &behind=(le:styled " " 33)
+            &diverged=(le:styled ":" 33)
+            &dirty=(le:styled " " 31)
+            &none=(le:styled " " 32)]
 
 fn git-dir {
     try
