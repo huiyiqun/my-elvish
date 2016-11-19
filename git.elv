@@ -10,7 +10,7 @@ fn git-dir {
     try
         path=(git rev-parse --git-dir 2>/dev/null)
     except
-        fail "Not a git repositoryy"
+        fail "Not a git repository"
     tried
     path-dir (path-abs $path)
 }
