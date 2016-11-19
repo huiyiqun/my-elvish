@@ -8,6 +8,9 @@ ls-color:setup ~/Source/dircolors-solarized/dircolors.256dark
 # use bffi as the default completion in elvish
 #le:completer['']={ bash ~/.elvish/get-completion.bash $@ }
 
+use cowsay
+cowsay:say "苟利国家生死以 岂因祸福趋避之"
+
 # alias
 fn ls { e:ls --color=auto $@ }
 fn grep { e:grep --color=auto $@ }
