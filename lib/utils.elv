@@ -1,14 +1,13 @@
 fn ok [f]{
-    try { $f; } except {
- false; }
-}
-
-fn not-ok [f]{
-    if (ok $f) { false; }
+    if ?(f) { true } else { false }
 }
 
 fn not [f]{
-    if ($f) { false; }
+    if ($f) { false } else { true }
+}
+
+fn not-ok [f]{
+    not { ok $f }
 }
 
 fn remove [list target]{
