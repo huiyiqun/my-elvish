@@ -18,27 +18,27 @@ fn yat { yaourt $@ }
 fn up { yaourt -Syua --devel --noconfirm}
 
 # bind
-le:binding[insert][Alt+Backspace]=$le:&kill-small-word-left
-le:binding[insert][Ctrl+A]=$le:&move-dot-sol
-le:binding[insert][Ctrl+E]=$le:&move-dot-eol
+le:binding[insert][Alt+Backspace] = $le:&kill-small-word-left
+le:binding[insert][Ctrl+A] = $le:&move-dot-sol
+le:binding[insert][Ctrl+E] = $le:&move-dot-eol
 
 # environments
-E:GOPATH=~/go
-E:MANPAGER="nvim -u NORC -c 'set ft=man' -"
-E:EDITOR=nvim
-E:VISUAL=nvim
+E:GOPATH = ~/go
+E:MANPAGER = "nvim -u NORC -c 'set ft=man' -"
+E:EDITOR = nvim
+E:VISUAL = nvim
 
 # prompt
 use venv
-default-rprompt=$le:rprompt
-le:rprompt={ le:styled (venv:venv-string-with-path | slurp) 33; $default-rprompt }
+default-rprompt = $le:rprompt
+le:rprompt = { le:styled (venv:venv-string-with-path | slurp) 33; $default-rprompt }
 
 use git
-default-prompt=$le:prompt
-le:prompt={
-    try
+default-prompt = $le:prompt
+le:prompt = {
+    try {
         git:git-string
-    except
+    } except {
         $default-prompt
-    tried
+    }
 }
