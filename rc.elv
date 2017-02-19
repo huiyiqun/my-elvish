@@ -29,16 +29,16 @@ E:EDITOR = nvim
 E:VISUAL = nvim
 
 # prompt
-use venv
-default-rprompt = $le:rprompt
-le:rprompt = { le:styled (venv:venv-string-with-path | slurp) 33; $default-rprompt }
+#use venv
+#default-rprompt = $le:rprompt
+#le:rprompt = { le:styled (venv:venv-string-with-path | slurp) 33; $default-rprompt }
 
-use git
-default-prompt = $le:prompt
-le:prompt = {
-    try {
-        git:git-string
-    } except {
-        $default-prompt
-    }
-}
+#use git
+#default-prompt = $le:prompt
+#le:prompt = {
+    #try {
+        #git:git-string
+    #} except {
+        #$default-prompt
+    #}
+#}
