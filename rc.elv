@@ -18,9 +18,8 @@ fn yat { yaourt $@ }
 fn up { yaourt -Syua --devel --noconfirm}
 
 # bind
+use embedded:readline-binding
 le:binding[insert][Alt+Backspace] = $le:&kill-small-word-left
-le:binding[insert][Ctrl+A] = $le:&move-dot-sol
-le:binding[insert][Ctrl+E] = $le:&move-dot-eol
 
 # environments
 E:GOPATH = ~/go
