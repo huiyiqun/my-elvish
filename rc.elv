@@ -19,7 +19,6 @@ fn up { yaourt -Syua --devel --noconfirm}
 
 # bind
 use embedded:readline-binding
-le:binding[insert][Alt+Backspace] = $le:&kill-small-word-left
 
 # environments
 E:GOPATH = ~/go
